@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Portada nasa</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Tania Sánchez"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    <style>
+  body{
+        background-color:gainsboro ;
+    }
+   #contenedor  {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        /*Esto es para conseguir alinear de derecha a izquierda, el contenido y centrarlo*/
+        margin-top: 30px;
+        /*Para dar un margen superior al contenedor respecto de los títulos*/
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: cadetblue;
+        /*Propiedades al texto que contiene el contenedor*/
+        
+        background-color: azure;
+
+    }
+
+    #contenedor >div{
+        margin-top: 10px;/*Para separar los div dentro del contenedor de la parte superior*/
+        padding: 30px;/*Para separar los div de manera lateral unos de otros*/
+             
+    }
+    
+    #contenedor .hielo img{
+        width: 300px;
+        height: 200px;
+        display: flex;
+        /*Para dar propiedades a las imágenes que están dentro de los div,altura y ancho y que se adapte con el texto de manera adeucada(display:flex) */
+    }
+    
+    #texto1{
+        color:aquamarine;
+        font-weight: bold;
+        font-size: 50px;
+        text-align: center;
+        
+    }
+    #texto2{
+        color:goldenrod;
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    </style>
+    
+</head>
+<body>
+    <h1 id="texto1">Cambio climático</h1>
+    <h2 id="texto2">Estas visualizaciones muestran como los indicadores de la Tierra han cambiado a lo largo del tiempo</h2>
+
+<div id="contenedor"> <!--Contenedor Flex-->
+    <div class="hielo"><img src="imagenes/hielo.jpg"><p></p>Deshielo</p></div>
+<!--Se añade el texto con una etiqueta p para que genere un margen entre la imagen y el texto-->
+   
+    
+    <div class="hielo"><a href="sealevel.html"><img src="imagenes/nivelmar.jpg"></a><p>Nivel del mar</p></div>
+<!--Si pongo el texto antes de cerrar la etiqueta <a>, genera que no asuma el estilo del css para texto, ya que al pinchar en ella tb iría al enlace. Al estar después del cierre de la etiqueta <a>, el texto coge el estilo deseado y es, al pinhcar en la imagen, donde te lleva al otro html-->
+   
+    <div class="hielo"><img src="imagenes/dioxido.jpg"><p>Dióxido de carbono</p></div>
+
+    
+    <div class="hielo"><img src="imagenes/temperatura.jpg"><p>Temperatura</p></div>
+   
+
+</div>
+
+       
+</body>
+</html>
