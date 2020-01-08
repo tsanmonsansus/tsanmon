@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Barra de progreso Sea Level</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Tania Sánchez"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+
+    <style>
+
+        #texto1{ 
+            text-align: center;
+            color:goldenrod
+        }
+        #texto2{ 
+            text-align: center;
+            color:burlywood;
+        }
+       
+        #barra {
+            width: 0;
+            height: 30px;
+            background-color:red;
+            text-align:center ;
+            line-height:30px ;
+            color:black;
+
+
+        }   
+        #imagen{
+            width:77% ;
+            height: 42%;
+        }
+      
+
+    </style>
+
+    <!--Funciones para el movimiento de la barra y que cambie imagen-->
+    <script>
+    var i=0;
+    function nivel(){
+        if (i == 0){
+            i = 1;
+            var bar=document.getElementById("barra"); /*Declaramos dos variables bar e img que nos van a permitir variar lo que se encuentra en los div barra e imagen*/
+            var img= document.getElementById("imagen");
+            var ancho=0; /*Declaramos una variable ancho que comienza en valor cero y va a ir aumentando*/
+            var id= setInterval(mapa,500);/*Declaramos la vaiable id que ejecuta la funcoin mapa cada 500milisegundos*/
+                
+        function mapa(){
+            if (ancho >= 6){ 
+                clearInterval(id);
+                i=0;
+                /*Si el ancho es igual o mayor a 6 se realiza una limpieza que genera que comience desde el principio porque ya reccorrió toda la barra y las imagenes*/
+            }
+            else{
+                ancho = ancho + 1; /*La variable ancho va aumentanto y genera que el ancho de la barra vaya aumentando de 10 en 10(bar.style.width) y tambien que cambie el valor desde 1 a 6m (bar.innerHTML)*/
+                bar.style.width= ancho*10 + "%"; 
+                bar.innerHTML = ancho + "m";
+                img.innerHTML = "<img id='imagen' src="+ "'imagenes/sealevel"+ ancho +".jpeg'>"; /*Esto hace que cada vez que aumenta la variable ancho la imagen cambia y coge la imagen que se encuentra en la carpeta imagenes con nombre:sealevel y un número que cambia con la variable ancho de jpeg*/
+            }
+        
+        }
+        }
+    }
+          
+        
+    </script>
+
+</head>
+<body>
+    <h1 id="texto1">Nivel del mar</h1>
+    <h2 id="texto2">Norte de Europa</h2>
+    <div id="progreso">
+        <div id="imagen"> <img id="imagen" src="imagenes/sealevel0.jpeg"></div>
+        <div id="barra"> Om</div>
+
+    </div>
+
+    <button onclick="nivel()">>></button> <!--Al pulsar el botón >> se ejecuta la funcion nivel-->
+    
+</body>
+</html>
